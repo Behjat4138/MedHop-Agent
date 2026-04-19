@@ -1,0 +1,10 @@
+# Python 3.10+
+datasets==2.19.1
+rank-bm25==0.2.2
+scikit-learn==1.4.2
+numpy==1.26.4
+matplotlib==3.8.4
+scispacy==0.5.4
+# After pip install scispacy, run:
+#   pip install https://s3-us-west-2.amazonaws.com/ai2-s2-scispacy/releases/v0.5.4/en_core_sci_sm-0.5.4.tar.gz
+# Only needed if NER features are used — skip if cutting scispacy
