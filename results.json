@@ -1,7 +1,8 @@
 {
   "validation_accuracy_classifier": 0.693,
   "validation_accuracy_always_multi_baseline": 0.6257,
-  "improvement_over_baseline": 0.0673,
+  "validation_accuracy_always_single_baseline": 0.3743,
+  "improvement_over_best_baseline": 0.0673,
   "n_val_examples": 342,
   "val_pct_hard": 0.6257,
   "train_bm25_median": 3.4898,

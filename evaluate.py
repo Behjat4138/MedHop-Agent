@@ -60,14 +60,17 @@ def main():
     y_pred_clf = clf.predict(X_val)
     acc_clf = accuracy_score(y_val, y_pred_clf)
 
-    # Baseline: always predict multi-hop (label = 1)
-    y_pred_base = np.ones_like(y_val)
-    acc_base = accuracy_score(y_val, y_pred_base)
+    # Baselines
+    y_pred_multi  = np.ones_like(y_val)
+    y_pred_single = np.zeros_like(y_val)
+    acc_base_multi  = accuracy_score(y_val, y_pred_multi)
+    acc_base_single = accuracy_score(y_val, y_pred_single)
 
     print(f"\n--- Results ---")
     print(f"  Classifier accuracy:      {acc_clf*100:.1f}%")
-    print(f"  Always-multi baseline:    {acc_base*100:.1f}%")
-    print(f"  Improvement over baseline: {(acc_clf - acc_base)*100:+.1f}%")
+    print(f"  Always-multi baseline:    {acc_base_multi*100:.1f}%")
+    print(f"  Always-single baseline:   {acc_base_single*100:.1f}%")
+    print(f"  Improvement over best baseline: {(acc_clf - max(acc_base_multi, acc_base_single))*100:+.1f}%")
 
     # Confusion matrix plot
     cm = confusion_matrix(y_val, y_pred_clf)
@@ -102,8 +105,9 @@ def main():
     # Save all results to JSON
     results = {
         "validation_accuracy_classifier": round(acc_clf, 4),
-        "validation_accuracy_always_multi_baseline": round(acc_base, 4),
-        "improvement_over_baseline": round(acc_clf - acc_base, 4),
+        "validation_accuracy_always_multi_baseline": round(acc_base_multi, 4),
+        "validation_accuracy_always_single_baseline": round(acc_base_single, 4),
+        "improvement_over_best_baseline": round(acc_clf - max(acc_base_multi, acc_base_single), 4),
         "n_val_examples": int(len(y_val)),
         "val_pct_hard": round(float(y_val.mean()), 4),
         "train_bm25_median": round(median_score, 4),
