@@ -1,0 +1,52 @@
+MedHop Retrieval Evaluation
+Date: 2026-04-22 00:25
+Checkpoint: checkpoints/epoch_5
+Eval set: MedHop validation split (342 examples)
+Eval mode: closed-domain — ranking within each question's own ~30 support passages
+Relevant set: passages that contain the answer drug-ID as a substring
+  (examples where no support passage contains the answer are excluded)
+
+Model                      R@1    R@5    R@10   nDCG@1    nDCG@5    nDCG@10 
+----------------------------------------------------------------------------
+bm25                       0.041    0.199    0.409    0.041    0.110    0.176  
+medcpt_vanilla             0.058    0.246    0.491    0.058    0.137    0.215  
+medcpt_finetuned           0.082    0.412    0.693    0.082    0.230    0.316  
+sbert                      0.058    0.342    0.556    0.058    0.188    0.256  
+dpr                        0.020    0.170    0.386    0.020    0.089    0.154  
+
+Per-model scores (full):
+  bm25:
+    ndcg@1       0.0409
+    ndcg@10      0.1763
+    ndcg@5       0.1099
+    recall@1     0.0409
+    recall@10    0.4094
+    recall@5     0.1988
+  medcpt_vanilla:
+    ndcg@1       0.0585
+    ndcg@10      0.2146
+    ndcg@5       0.1371
+    recall@1     0.0585
+    recall@10    0.4912
+    recall@5     0.2456
+  medcpt_finetuned:
+    ndcg@1       0.0819
+    ndcg@10      0.3164
+    ndcg@5       0.2304
+    recall@1     0.0819
+    recall@10    0.6930
+    recall@5     0.4123
+  sbert:
+    ndcg@1       0.0585
+    ndcg@10      0.2562
+    ndcg@5       0.1883
+    recall@1     0.0585
+    recall@10    0.5556
+    recall@5     0.3421
+  dpr:
+    ndcg@1       0.0205
+    ndcg@10      0.1540
+    ndcg@5       0.0885
+    recall@1     0.0205
+    recall@10    0.3860
+    recall@5     0.1696
