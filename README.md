@@ -17,7 +17,8 @@ Question → Router → Retriever → Reranker → Agent → Answer
 Each stage is independently trainable and replaceable. The system is evaluated on the **MedHop** benchmark, which tests multi-hop reasoning across drug-interaction passages.
 
 ---
-
+## Headline result:
+The fine-tuned cross-encoder reranker achieves Recall@5 = 0.567 and Recall@10 = 0.868 on the MedHop validation split, improving over the strongest retriever-only baseline (fine-tuned MedCPT) by +15.5 and +17.5 percentage points respectively.
 ## Pipeline Components
 
 | Stage | Component | Purpose |
@@ -80,7 +81,7 @@ Closed-domain evaluation: each question's ~30 curated support passages are reran
 | Model | Recall@5 | nDCG@5 | Recall@10 | nDCG@10 |
 |-------|---------:|-------:|----------:|--------:|
 | Zero-shot ms-marco cross-encoder | 0.336 | 0.172 | 0.585 | 0.248 |
-| **Fine-tuned cross-encoder (MedHop)** | **TBD** | **TBD** | **TBD** | **TBD** |
+| **Fine-tuned cross-encoder (MedHop)** | **0.567** | **0.343** | **0.868** | **0.446** |
 
 ### Routing Stage
 
