@@ -1,0 +1,22 @@
+# Retriever — Person A dependencies
+# Python 3.10+
+# Install:  pip install -r retriever/requirements.txt
+
+# HuggingFace ecosystem
+datasets==2.19.1
+transformers==4.41.2
+tokenizers==0.19.1
+
+# Deep learning
+torch==2.3.0           # use the CUDA wheel if GPUs are available:
+                       # pip install torch==2.3.0 --index-url https://download.pytorch.org/whl/cu121
+
+# Dense retrieval models (downloaded automatically on first use)
+sentence-transformers==3.0.1   # SBERT baseline
+
+# Lexical retrieval
+rank-bm25==0.2.2
+
+# Numerics / utilities
+numpy==1.26.4
+tqdm==4.66.4
